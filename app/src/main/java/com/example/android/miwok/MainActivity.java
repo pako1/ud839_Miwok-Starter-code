@@ -15,10 +15,18 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView Numbers;
+    TextView Phrases;
+    TextView Family;
+    TextView Colors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +34,46 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+        Numbers = findViewById(R.id.numbers);
+        Phrases = findViewById(R.id.phrases);
+        Family  = findViewById(R.id.family);
+        Colors  = findViewById(R.id.colors);
+
+        Numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent NumberIntent = new Intent(MainActivity.this,NumbersActivity.class);
+                startActivity(NumberIntent);
+
+            }
+        });
+
+        Phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PhrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
+                startActivity(PhrasesIntent);
+            }
+        });
+
+        Colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ColorIntent = new Intent(MainActivity.this,ColorsActivity.class);
+                startActivity(ColorIntent);
+            }
+        });
+
+        Family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent FamilyIntent = new Intent(MainActivity.this,FamilyActivity.class);
+                startActivity(FamilyIntent);
+
+            }
+        });
     }
+
+
 }
